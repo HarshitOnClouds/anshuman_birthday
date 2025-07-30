@@ -74,7 +74,7 @@ function App() {
   }, 
   {
     image: "14.jpg",
-    title: "At Heart a pookie sensitive mf who was made strong by this curel world",
+    title: "At Heart a pookie sensitive mf who was made strong by this cruel world",
     borderColor: "#3B82F6",
     gradient: "linear-gradient(145deg, #3B82F6, #000)",
   },
