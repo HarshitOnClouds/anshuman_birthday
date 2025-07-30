@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+/* Custom glitch animations for GlitchText component */
+@keyframes glitch {
+  0% { clip-path: inset(20% 0 50% 0); }
+  5% { clip-path: inset(10% 0 60% 0); }
+  10% { clip-path: inset(15% 0 55% 0); }
+  15% { clip-path: inset(25% 0 35% 0); }
+  20% { clip-path: inset(30% 0 40% 0); }
+  25% { clip-path: inset(40% 0 20% 0); }
+  30% { clip-path: inset(10% 0 60% 0); }
+  35% { clip-path: inset(15% 0 55% 0); }
+  40% { clip-path: inset(25% 0 35% 0); }
+  45% { clip-path: inset(30% 0 40% 0); }
+  50% { clip-path: inset(20% 0 50% 0); }
+  55% { clip-path: inset(10% 0 60% 0); }
+  60% { clip-path: inset(15% 0 55% 0); }
+  65% { clip-path: inset(25% 0 35% 0); }
+  70% { clip-path: inset(30% 0 40% 0); }
+  75% { clip-path: inset(40% 0 20% 0); }
+  80% { clip-path: inset(20% 0 50% 0); }
+  85% { clip-path: inset(10% 0 60% 0); }
+  90% { clip-path: inset(15% 0 55% 0); }
+  95% { clip-path: inset(25% 0 35% 0); }
+  100% { clip-path: inset(30% 0 40% 0); }
+}
+
+/* Define the animation utilities with !important to override any conflicts */
+.animate-glitch-after {
+  animation: glitch var(--after-duration, 3s) infinite linear alternate-reverse !important;
+}
+
+.animate-glitch-before {
+  animation: glitch var(--before-duration, 2s) infinite linear alternate-reverse !important;
+}
+
+/* Alternative approach - direct CSS classes for debugging */
+.glitch-element {
+  /* Add stronger black background with padding */
+  background: #000000;
+  padding: 20px 40px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.glitch-element::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 20px;
+  left: 60px; /* Shifted more to the right */
+  color: white;
+  background: #000000; /* Darker black background */
+  overflow: hidden;
+  text-shadow: 2px 0 red; /* Increased shadow distance */
+  animation: glitch 7s infinite linear alternate-reverse;
+  padding: 5px 5px; /* Add padding to extend background */
+}
+
+.glitch-element::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 20px;
+  left: 20px; /* Shifted more to the left */
+  color: white;
+  background: #000000; /* Darker black background */
+  overflow: hidden;
+  text-shadow: 2px 0 cyan; /* Increased shadow distance */
+  animation: glitch 9s infinite linear alternate-reverse;
+  padding: 5px 5px; /* Add padding to extend background */
+}
